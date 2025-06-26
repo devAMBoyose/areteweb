@@ -1102,41 +1102,52 @@ Our team is a diverse group of strategists, developers, designers, and digital t
     </section><!-- /Testimonials Section -->
 
     <!-- Contact Section -->
-   <!-- Contact Section -->
-<section id="contact" class="contact section">
+ <!-- Include EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function () {
+    emailjs.init("TjIVuUz2SALwlYg5j"); // ✅ Replace with your EmailJS Public Key
+  })();
+</script>
 
-  <!-- Section Title -->
+<section id="contact" class="contact section">
   <div class="container section-title" data-aos="fade-up">
     <h2>Contact</h2>
     <p><strong>Let’s turn your ideas into reality.</strong><br>
-      Have a project in mind? Need a quote or just want to learn more about what we can do for you? We’d love to hear from you.</p>
+      Have a project in mind? Need a quote or just want to learn more about what we can do for you? We’d love to hear from you.
+    </p>
     <div class="cta-action mt-5">
-      <a href="#" class="btn btn-primary btn-lg me-3">Fillup the Form</a>
+      <a href="#contact" class="btn btn-primary btn-lg me-3">Fillup the Form</a>
       <a href="#" class="btn btn-outline-primary btn-lg">Learn More</a>
     </div>
-  </div><!-- End Section Title -->
+  </div>
 
   <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-    <!-- Contact Info Cards -->
     <div class="row gy-4 mb-5">
       <div class="col-lg-4">
         <div class="info-card">
-          <div class="icon-box"><i class="bi bi-geo-alt"></i></div>
+          <div class="icon-box">
+            <i class="bi bi-geo-alt"></i>
+          </div>
           <h3>Our Address</h3>
           <p>2847 Hills, Shaw Boulevard, corner Samat, Mandaluyong City, Metro Manila</p>
         </div>
       </div>
       <div class="col-lg-4">
         <div class="info-card">
-          <div class="icon-box"><i class="bi bi-telephone"></i></div>
+          <div class="icon-box">
+            <i class="bi bi-telephone"></i>
+          </div>
           <h3>Contact Number</h3>
           <p>Mobile: +1 (555) 123-4567<br>Email: consultant@areteweb.com</p>
         </div>
       </div>
       <div class="col-lg-4">
         <div class="info-card">
-          <div class="icon-box"><i class="bi bi-clock"></i></div>
+          <div class="icon-box">
+            <i class="bi bi-clock"></i>
+          </div>
           <h3>Opening Hour</h3>
           <p>Monday - Saturday: 9:00 - 18:00<br>Sunday: Closed</p>
         </div>
@@ -1162,6 +1173,7 @@ Our team is a diverse group of strategists, developers, designers, and digital t
                 </div>
               </div>
             </div>
+
             <div class="row mt-3">
               <div class="col-md-6 form-group">
                 <div class="input-group">
@@ -1182,19 +1194,22 @@ Our team is a diverse group of strategists, developers, designers, and digital t
                 </div>
               </div>
             </div>
+
             <div class="form-group mt-3">
               <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-chat-dots"></i></span>
                 <textarea name="message" class="form-control" rows="6" placeholder="Write a message*" required></textarea>
               </div>
             </div>
+
             <div class="my-3">
-              <div class="loading" style="display:none;">Loading...</div>
+              <div class="loading text-info" style="display:none;">Sending...</div>
               <div class="error-message text-danger" style="display:none;"></div>
               <div class="sent-message text-success" style="display:none;">Your message has been sent. Thank you!</div>
             </div>
+
             <div class="text-center">
-              <button type="submit">Submit Message</button>
+              <button type="submit" class="btn btn-primary">Submit Message</button>
             </div>
           </form>
         </div>
@@ -1204,13 +1219,8 @@ Our team is a diverse group of strategists, developers, designers, and digital t
   </div>
 </section>
 
-<!-- EmailJS SDK & Submission Script -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<!-- Submission Handler Script -->
 <script>
-  (function () {
-    emailjs.init("TjIVuUz2SALwlYg5j"); // ✅ Your Public Key here
-  })();
-
   document.getElementById('contact-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -1223,7 +1233,7 @@ Our team is a diverse group of strategists, developers, designers, and digital t
     error.style.display = 'none';
     sent.style.display = 'none';
 
-    emailjs.sendForm('service_elq0wwe', 'template_r7n9zqa', form) // ✅ Replace with your real IDs
+    emailjs.sendForm('service_elq0wwe', 'template_r7n9zqa', form)
       .then(() => {
         loading.style.display = 'none';
         sent.style.display = 'block';
@@ -1233,7 +1243,7 @@ Our team is a diverse group of strategists, developers, designers, and digital t
         loading.style.display = 'none';
         error.textContent = 'Sending failed. Please try again.';
         error.style.display = 'block';
-        console.error(err);
+        console.error('EmailJS Error:', err);
       });
   });
 </script>
