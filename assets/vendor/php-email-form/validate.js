@@ -1,85 +1,43 @@
-/**
-* PHP Email Form Validation - v3.10
-* URL: https://bootstrapmade.com/php-email-form/
-* Author: BootstrapMade.com
-*/
-(function () {
-  "use strict";
+<?php
+// ✅ Enable PHP error reporting at the very beginning
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-  let forms = document.querySelectorAll('.php-email-form');
+// ✅ Set the recipient email
+$receiving_email_address = 'admin@hiravuelo.com';
 
-  forms.forEach( function(e) {
-    e.addEventListener('submit', function(event) {
-      event.preventDefault();
+// ✅ Include the PHP Email Form library
+if (file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php')) {
+  include($php_email_form);
+} else {
+  die('Unable to load the "PHP Email Form" Library!');
+}
 
-      let thisForm = this;
+// ✅ Initialize the form handler
+$contact = new PHP_Email_Form;
+$contact->ajax = true;
 
-      let action = thisForm.getAttribute('action');
-      let recaptcha = thisForm.getAttribute('data-recaptcha-site-key');
-      
-      if( ! action ) {
-        displayError(thisForm, 'The form action property is not set!');
-        return;
-      }
-      thisForm.querySelector('.loading').classList.add('d-block');
-      thisForm.querySelector('.error-message').classList.remove('d-block');
-      thisForm.querySelector('.sent-message').classList.remove('d-block');
+$contact->to = $receiving_email_address;
+$contact->from_name = $_POST['name'] ?? '';
+$contact->from_email = $_POST['email'] ?? '';
+$contact->subject = $_POST['subject'] ?? 'Contact Form Submission';
 
-      let formData = new FormData( thisForm );
+// ✅ SMTP configuration for Namecheap Private Email
+$contact->smtp = array(
+  'host' => 'mail.privateemail.com',
+  'username' => 'admin@hiravuelo.com',
+  'password' => '*3fBjCN2', // Make sure this is correct or use an App Password if 2FA is enabled
+  'port' => '587'
+);
 
-      if ( recaptcha ) {
-        if(typeof grecaptcha !== "undefined" ) {
-          grecaptcha.ready(function() {
-            try {
-              grecaptcha.execute(recaptcha, {action: 'php_email_form_submit'})
-              .then(token => {
-                formData.set('recaptcha-response', token);
-                php_email_form_submit(thisForm, action, formData);
-              })
-            } catch(error) {
-              displayError(thisForm, error);
-            }
-          });
-        } else {
-          displayError(thisForm, 'The reCaptcha javascript API url is not loaded!')
-        }
-      } else {
-        php_email_form_submit(thisForm, action, formData);
-      }
-    });
-  });
+// ✅ Add form message fields
+$contact->add_message($_POST['name'] ?? '', 'From');
+$contact->add_message($_POST['email'] ?? '', 'Email');
+if (!empty($_POST['phone'])) {
+  $contact->add_message($_POST['phone'], 'Phone');
+}
+$contact->add_message($_POST['message'] ?? '', 'Message', 10);
 
-  function php_email_form_submit(thisForm, action, formData) {
-    fetch(action, {
-      method: 'POST',
-      body: formData,
-      headers: {'X-Requested-With': 'XMLHttpRequest'}
-    })
-    .then(response => {
-      if( response.ok ) {
-        return response.text();
-      } else {
-        throw new Error(`${response.status} ${response.statusText} ${response.url}`); 
-      }
-    })
-    .then(data => {
-      thisForm.querySelector('.loading').classList.remove('d-block');
-      if (data.trim() == 'OK') {
-        thisForm.querySelector('.sent-message').classList.add('d-block');
-        thisForm.reset(); 
-      } else {
-        throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
-      }
-    })
-    .catch((error) => {
-      displayError(thisForm, error);
-    });
-  }
-
-  function displayError(thisForm, error) {
-    thisForm.querySelector('.loading').classList.remove('d-block');
-    thisForm.querySelector('.error-message').innerHTML = error;
-    thisForm.querySelector('.error-message').classList.add('d-block');
-  }
-
-})();
+// ✅ Send the email
+echo $contact->send();
+?>
