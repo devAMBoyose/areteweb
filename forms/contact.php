@@ -1,7 +1,22 @@
 <?php
-// ✅ Enable PHP error reporting at the very beginning
+// ✅ Enable error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+
+// ✅ (Optional) Test direct mail first
+/*
+$to = "admin@hiravuelo.com";
+$subject = "Test Message";
+$message = "This is a test email from Render server";
+$headers = "From: test@areteweb.onrender.com";
+
+if(mail($to, $subject, $message, $headers)) {
+    echo "OK";
+} else {
+    echo "Mail failed";
+    exit;
+}
+*/
 
 // ✅ Set the recipient email
 $receiving_email_address = 'admin@hiravuelo.com';
@@ -26,7 +41,7 @@ $contact->subject = $_POST['subject'] ?? 'Contact Form Submission';
 $contact->smtp = array(
   'host' => 'mail.privateemail.com',
   'username' => 'admin@hiravuelo.com',
-  'password' => '*3fBjCN2', // Make sure this is correct or use an App Password if 2FA is enabled
+  'password' => '*3fBjCN2', // ✅ Replace with app password if 2FA is on
   'port' => '587'
 );
 
