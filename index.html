@@ -1220,7 +1220,12 @@ Our team is a diverse group of strategists, developers, designers, and digital t
 </section>
 
 <!-- Submission Handler Script -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
+  (function () {
+    emailjs.init("TjIVuUz2SALwlYg5j"); // Your EmailJS public key
+  })();
+
   document.getElementById('contact-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -1233,7 +1238,7 @@ Our team is a diverse group of strategists, developers, designers, and digital t
     error.style.display = 'none';
     sent.style.display = 'none';
 
-    emailjs.sendForm('service_elq0wwe', 'template_r7n9zqa', form)
+    emailjs.sendForm('service_elq0wwe', 'template_3pw33lq', form)
       .then(() => {
         loading.style.display = 'none';
         sent.style.display = 'block';
