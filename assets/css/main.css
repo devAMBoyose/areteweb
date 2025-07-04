@@ -2986,3 +2986,40 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/*--------------------------------------------------------------
+# Innovation ring Section
+--------------------------------------------------------------*/
+/* Pill Style */
+.pill {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #eef1ff; /* soft background color */
+  color: #333;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* Ringing Animation Keyframes */
+@keyframes ring {
+  0% { transform: rotate(0); }
+  1% { transform: rotate(5deg); }
+  3% { transform: rotate(-5deg); }
+  5% { transform: rotate(4deg); }
+  7% { transform: rotate(-4deg); }
+  9% { transform: rotate(3deg); }
+  11% { transform: rotate(-3deg); }
+  13% { transform: rotate(0deg); }
+  100% { transform: rotate(0); }
+}
+
+/* Apply Ringing Animation */
+.animate-ring {
+  animation: ring 2s infinite ease-in-out;
+  display: inline-block;
+}
+
