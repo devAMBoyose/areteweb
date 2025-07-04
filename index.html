@@ -81,15 +81,47 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <!-- CTA Button -->
+       <!-- CTA Button -->
       <div class="button-wrapper">
-        <a class="btn btn-primary" href="#">
-          Customer Support
-        </a>
-      </div>
+  <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#supportModal">
+    Customer Support
+  </a>
+</div>
 
     </div>
   </header>
+
+  <div class="modal fade" id="supportModal" tabindex="-1" aria-labelledby="supportModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="supportModalLabel">Customer Support</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="supportForm">
+          <div class="mb-3">
+            <label for="supportType" class="form-label">How can we help you?</label>
+            <select class="form-select" id="supportType" required>
+              <option value="">Select an option</option>
+              <option value="ticket">Open a Ticket</option>
+              <option value="change">Request Changes</option>
+              <option value="consultation">Schedule a Consultation</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="supportMessage" class="form-label">Details</label>
+            <textarea class="form-control" id="supportMessage" rows="3" placeholder="Describe your issue or request..." required></textarea>
+          </div>
+          <div id="ticketSuccess" class="alert alert-success d-none" role="alert">
+            Your request has been submitted successfully!
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 
     </div>
