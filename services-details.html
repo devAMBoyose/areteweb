@@ -82,11 +82,129 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-       <!-- CTA Button -->
+       <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TVN2CM2L');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>HOME | DevArete</title>
+  <meta name="description" content="DevArete - End-to-end digital solutions tailored to your business goals.">
+  <meta name="keywords" content="DevArete, Web Development, Custom Software, Business Solutions">
+
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "DevArete",
+  "url": "https://devarete.com",
+  "logo": "https://devarete.com/assets/logo/Asset 2.png"
+}
+  </script>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  
+</head>
+
+<body class="index-page">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVN2CM2L"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Header -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <!-- Logo -->
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <img src="assets/img/logo.webp" alt="DevArete Logo">
+        <h1 class="sitename">{Dev}Arete</h1>
+      </a>
+
+      <!-- Navigation -->
+      <nav id="navmenu" class="navmenu">
+        <ul>
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="#about" class="bold">About</a></li>
+        <li><a href="#services" class="bold">Services</a></li>
+        <li><a href="#portfolio" class="bold">Portfolio</a></li>
+        <li><a href="#team" class="bold">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <!-- CTA Button -->
       <div class="button-wrapper">
   <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#supportModal">
     Customer Support
   </a>
+</div>
+
+    </div>
+  </header>
+
+  <div class="modal fade" id="supportModal" tabindex="-1" aria-labelledby="supportModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="supportModalLabel">Customer Support</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="supportForm">
+          <div class="mb-3">
+            <label for="supportType" class="form-label">How can we help you?</label>
+            <select class="form-select" id="supportType" required>
+              <option value="">Select an option</option>
+              <option value="ticket">Open a Ticket</option>
+              <option value="change">Request Changes</option>
+              <option value="consultation">Schedule a Consultation</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="supportMessage" class="form-label">Details</label>
+            <textarea class="form-control" id="supportMessage" rows="3" placeholder="Describe your issue or request..." required></textarea>
+          </div>
+          <div id="ticketSuccess" class="alert alert-success d-none" role="alert">
+            Your request has been submitted successfully!
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
     </div>
