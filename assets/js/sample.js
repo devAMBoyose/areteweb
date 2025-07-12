@@ -1,4 +1,4 @@
-emailjs.sendForm("service_g4vsyal", "template_o7utfto", form)
+emailjs.sendForm("service_devarete", "template_o7utfto", form)
   .then(function(response) {
     alert("Appointment sent successfully!");
     const modal = bootstrap.Modal.getInstance(document.getElementById("scheduleModal"));
