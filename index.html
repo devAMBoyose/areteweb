@@ -1394,11 +1394,12 @@ Our team is a diverse group of strategists, developers, designers, and digital t
 </section>
 
 <!-- Submission Handler Script -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function () {
-    emailjs.init("TjIVuUz2SALwlYg5j"); // Your EmailJS public key
+<script type="text/javascript">
+  (function(){
+    emailjs.init("TjIVuUz2SALwlYg5j"); 
   })();
+</script>
+
 
   document.getElementById('contact-form').addEventListener('submit', function (e) {
     e.preventDefault();
