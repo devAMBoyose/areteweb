@@ -1403,34 +1403,6 @@ Our team is a diverse group of strategists, developers, designers, and digital t
   })();
 </script>
 
-
-  document.getElementById('contact-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const form = this;
-    const loading = form.querySelector('.loading');
-    const error = form.querySelector('.error-message');
-    const sent = form.querySelector('.sent-message');
-
-    loading.style.display = 'block';
-    error.style.display = 'none';
-    sent.style.display = 'none';
-
-    emailjs.sendForm('service_elq0wwe', 'template_3pw33lq', form)
-      .then(() => {
-        loading.style.display = 'none';
-        sent.style.display = 'block';
-        form.reset();
-      })
-      .catch((err) => {
-        loading.style.display = 'none';
-        error.textContent = 'Sending failed. Please try again.';
-        error.style.display = 'block';
-        console.error('EmailJS Error:', err);
-      });
-  });
-</script>
-
   </main>
 
   <footer id="footer" class="footer light-background">
