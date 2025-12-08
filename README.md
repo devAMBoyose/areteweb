@@ -113,8 +113,11 @@ For collaborations or project inquiries, feel free to reach out:
 📧 **Email:**  
 **amboyose.dev@gmail.com**
 
-🌐 **Portfolio:**  
-[![Portfolio](https://img.shields.io/badge/Visit%20My%20Portfolio-00c853?style=for-the-badge&logo=windowsterminal&logoColor=white)](https://amboyose.onrender.com/)
+<p align="center">
+  <a href="https://amboyose.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Anna%20Marice%20Boyose-Portfolio%20Website-00c853?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</p>
 
 ---
 
