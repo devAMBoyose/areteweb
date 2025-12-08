@@ -1,43 +1,24 @@
-<!-- ============================= -->
-<!--      PORTFOLIO COVER ART      -->
-<!-- ============================= -->
-
 <p align="center">
   <img src="https://img.shields.io/badge/Anna%20Marice%20Boyose-Portfolio%20Website-00c853?style=for-the-badge&logo=github&logoColor=white" />
 </p>
 
 <h1 align="center">🌐 Personal Portfolio — Anna Marice Boyose</h1>
-<p align="center">Full-Stack Developer | UI/UX Designer | Digital Systems Specialist</p>
+<p align="center"><strong>Full-Stack Developer | UI/UX Designer | Digital Systems Specialist</strong></p>
 
-<br>
-
-<!-- ============================= -->
-<!--         GITHUB BADGES         -->
-<!-- ============================= -->
+---
 
 <p align="center">
-  <!-- Profile Views -->
   <img src="https://komarev.com/ghpvc/?username=devAMBoyose&color=00c853&label=Profile+Views" />
-
-  <!-- Repo Stars -->
-  <img src="https://img.shields.io/github/stars/devAMBoyose/portfolio2025?style=flat&color=00c853" />
-
-  <!-- Last Commit -->
-  <img src="https://img.shields.io/github/last-commit/devAMBoyose/portfolio2025?style=flat&color=00c853" />
-
-  <!-- Status -->
+  <img src="https://img.shields.io/github/stars/devAMBoyose/areteweb?style=flat&color=00c853" />
+  <img src="https://img.shields.io/github/last-commit/devAMBoyose/areteweb?style=flat&color=00c853" />
   <img src="https://img.shields.io/badge/Status-Active-00c853?style=flat" />
 </p>
 
-<br>
-
-<!-- ============================= -->
-<!--          TECH STACK           -->
-<!-- ============================= -->
+---
 
 ## 🛠 Tech Stack
 
-<p align="left">
+<p>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
   <img src="https://img.shields.io/badge/JavaScript-F7E018?style=for-the-badge&logo=javascript&logoColor=black" />
@@ -46,97 +27,95 @@
   <img src="https://img.shields.io/badge/GitHub%20Pages-121013?style=for-the-badge&logo=github&logoColor=white" />
 </p>
 
-<br>
-
-<!-- ============================= -->
-<!--      TABLE OF CONTENTS        -->
-<!-- ============================= -->
+---
 
 ## 📌 Table of Contents
 
 | Section | Description |
 |--------|-------------|
-| **📁 Repository Structure** | Folder layout and file overview |
-| **✨ Features** | What’s included in the portfolio |
-| **🚀 Live Demo** | Direct link to the deployed site |
-| **🛠 Tech Stack** | Tools and technologies used |
-| **📌 Featured Projects** | Highlighted systems and apps |
-| **📄 About This Repo** | Usage details and purpose |
-| **📬 Contact** | Reach me for collaborations |
+| 📁 Repository Structure | File and folder overview |
+| ✨ Features | Highlights of the portfolio website |
+| 🚀 Live Demo | Link to the deployed website |
+| 🛠 Tech Stack | Technologies used |
+| 📌 Featured Projects | Systems and apps included |
+| 📄 About This Repository | Purpose and usage notes |
+| 📬 Contact | How to reach me |
 
-<br>
-
-<!-- ============================= -->
-<!--    REPOSITORY STRUCTURE       -->
-<!-- ============================= -->
+---
 
 ## 📁 Repository Structure
 
-```text
 /
-├── assets/                 # Images, icons, illustrations
-├── forms/                  # Form handlers and configs
-├── public/                 # Static CSS/JS files
-├── about.html              # About page
-├── contact.html            # Contact page
-├── index.html              # Landing page
-├── portfolio.html          # Portfolio list
-├── portfolio-details.html  # Detailed project view
-├── services.html           # Service overview
-├── services-details.html   # Service breakdown
-├── signature.html          # Digital signature page
-├── sitemap.xml             # Sitemap for SEO
-├── robots.txt              # Search engine crawler rules
-└── starter-page.html       # Template layout
+├── assets/ # Images and media
+├── forms/ # Form handlers
+├── public/ # CSS, JS, fonts, icons
+├── about.html # About page
+├── contact.html # Contact page
+├── index.html # Home page
+├── portfolio.html # Portfolio listing
+├── portfolio-details.html # Detailed project view
+├── services.html # Services overview
+├── services-details.html # Service details
+├── signature.html # Digital signature tool
+├── sitemap.xml # SEO sitemap
+├── robots.txt # Search engine rules
+└── starter-page.html # Template starter page
 
-<br> <!-- ============================= --> <!-- FEATURES --> <!-- ============================= -->
-✨ Key Features
 
-Fully responsive UI across all devices
+---
 
-Smooth animation and reveal effects
+## ✨ Features
 
-Clean portfolio layout with project filtering
+- Fully responsive across desktop, tablet, and mobile  
+- Smooth animations and reveal effects  
+- Modern portfolio structure with project categories  
+- SEO-friendly (meta tags, sitemap, robots.txt)  
+- Clean and scalable HTML structure  
+- Custom branding + consistent UI components  
 
-Optimized for SEO and loading performance
+---
 
-Organized and scalable file structure
+## 🚀 Live Website
 
-Modern design with custom branding
+🔗 **Visit my portfolio:**  
+https://your-domain-here.com  
+*(Replace with your real deployment link)*
 
-<br> <!-- ============================= --> <!-- LIVE SITE --> <!-- ============================= -->
-🚀 Live Website
+---
 
-🔗 Visit the Portfolio:
-https://your-domain-here.com
+## 📌 Featured Projects
 
-(Replace with your actual link)
+| Project | Description | Tech |
+|--------|-------------|------|
+| **DevArete Web System** | Full website with domain setup, scalable components, and service modules. | HTML, CSS, JS |
+| **BamBanking App (Java)** | Secure login, OTP, JWT auth, dashboard, and transaction system. | Java, Spring Boot, MongoDB |
+| **Inventory & Consignment Tracker** | API for medical supply tracking and expiration monitoring. | Node.js, MongoDB |
+| **Creative Assets for Clients** | Thumbnails, vector graphics, marketing visuals, mascot work. | Canva, Illustrator |
 
-<br> <!-- ============================= --> <!-- FEATURED PROJECTS --> <!-- ============================= -->
-📌 Featured Projects
-Project	Description	Tech
-DevArete Web System	Full website, domain setup, scalable pages, and service modules.	HTML, CSS, JS
-BamBanking App (Java)	Secure login, OTP, JWT, dashboard, transactions.	Java, Spring Boot, MongoDB
-Inventory & Consignment Tracker	Node.js API with medical supply monitoring.	Node.js, MongoDB
-Creative Assets for Clients	Thumbnails, vector graphics, branding materials.	Canva, Illustrator
-<br> <!-- ============================= --> <!-- ABOUT THIS REPOSITORY --> <!-- ============================= -->
-📄 About This Repository
+---
 
-This project serves as my official developer portfolio, showcasing systems, UI designs, and tools I built for clients and personal development.
+## 📄 About This Repository
 
-All content was created by Anna Marice Boyose
+This is my official portfolio repository showcasing:
 
-No external copyrighted text or media is included in this README
+- Full-stack applications  
+- UI/UX design systems  
+- Real client projects  
+- Creative and branding work  
 
-You may use the structure as reference, but cloning for commercial use is not permitted
+All content was created by **Anna Marice Boyose (Bamby)**.
 
-<br> <!-- ============================= --> <!-- CONTACT --> <!-- ============================= -->
-📬 Contact
+No copyrighted external text or licensed media is used.
 
-If you’d like to collaborate or inquire about projects:
+---
 
-📧 Email: amboyose.dev@gmail.com
+## 📬 Contact
 
-🌐 Portfolio: https://your-domain-here.com](https://amboyose.onrender.com/
+For collaborations or project inquiries:
 
-<p align="center">Thank you for visiting my portfolio repository! 💚</p> ```
+📧 **Email:** amboyose.dev@gmail.com  
+🌐 **Portfolio:** https://your-domain-here.com  
+
+---
+
+<p align="center">💚 Thank you for visiting my portfolio repository!</p>
