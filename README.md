@@ -37,6 +37,21 @@
 
 ---
 
+## 📬 Contact
+
+For collaborations or project inquiries, feel free to reach out:
+
+<p align="center">
+  <a href="https://github.com/devAMBoyose">
+    <img src="https://img.shields.io/badge/Anna%20Marice%20Boyose-222?style=for-the-badge&labelColor=000&logoColor=white" />
+  </a>
+
+  <a href="https://amboyose.onrender.com/">
+    <img src="https://img.shields.io/badge/Portfolio%20Website-00c853?style=for-the-badge&labelColor=000&logo=googlechrome&logoColor=white" />
+  </a>
+</p>
+
+
 ## 📁 Repository Structure
 
 ```text
@@ -73,13 +88,6 @@
 
 ---
 
-## 🚀 Live Website
-
-🔗 **Visit my portfolio:**  
-(https://amboyose.onrender.com/)
-
----
-
 ## 📌 Featured Projects
 
 | Project | Description | Tech |
@@ -103,21 +111,6 @@ This is my official portfolio repository showcasing:
 All content was created by **Anna Marice Boyose (Bamby)**.
 
 No copyrighted external text or licensed media is used.
-
----
-
-## 📬 Contact
-
-For collaborations or project inquiries, feel free to reach out:
-
-📧 **Email:**  
-**amboyose.dev@gmail.com**
-
-<p align="center">
-  <a href="https://amboyose.onrender.com/" target="_blank">
-    <img src="https://img.shields.io/badge/Anna%20Marice%20Boyose-Portfolio%20Website-00c853?style=for-the-badge&logo=github&logoColor=white" />
-  </a>
-</p>
 
 ---
 
