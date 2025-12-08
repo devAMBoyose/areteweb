@@ -46,7 +46,6 @@ For collaborations or project inquiries, feel free to reach out:
   </p>
 
   <p href="https://amboyose.onrender.com/">
-    <img src="https://img.shields.io/badge/Portfolio%20Website-00c853?style=for-the-badge&labelColor=000&logo=googlechrome&logoColor=white" />
   </p>
 
 ## 📁 Repository Structure
