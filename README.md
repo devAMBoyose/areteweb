@@ -108,12 +108,19 @@ No copyrighted external text or licensed media is used.
 
 ## 📬 Contact
 
-For collaborations or project inquiries:
+For collaborations or project inquiries, feel free to reach out:
 
-📧 **Email:** amboyose.dev@gmail.com  
+📧 **Email:**  
+**amboyose.dev@gmail.com**
+
 🌐 **Portfolio:**  
-[![Portfolio](https://img.shields.io/badge/Visit-Portfolio-00c853?style=for-the-badge)](https://amboyose.onrender.com/)
+
+<p align="left">
+  <a href="https://amboyose.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Visit%20My%20Portfolio-00c853?style=for-the-badge&logo=windowsterminal&logoColor=white" />
+  </a>
+</p>
 
 ---
 
-💚 Thank you for visiting my portfolio repository!
+💚 *Thank you for visiting my portfolio repository!*
