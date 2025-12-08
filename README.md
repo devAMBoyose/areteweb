@@ -45,21 +45,25 @@
 
 ## 📁 Repository Structure
 
+```text
 /
-├── assets/ # Images and media
-├── forms/ # Form handlers
-├── public/ # CSS, JS, fonts, icons
-├── about.html # About page
-├── contact.html # Contact page
-├── index.html # Home page
-├── portfolio.html # Portfolio listing
-├── portfolio-details.html # Detailed project view
-├── services.html # Services overview
-├── services-details.html # Service details
-├── signature.html # Digital signature tool
-├── sitemap.xml # SEO sitemap
-├── robots.txt # Search engine rules
-└── starter-page.html # Template starter page
+├── assets/                 # Images and media
+├── forms/                  # Form handlers
+├── public/                 # CSS, JS, fonts, icons
+
+├── about.html              # About page
+├── contact.html            # Contact page
+├── index.html              # Home page
+├── portfolio.html          # Portfolio listing
+├── portfolio-details.html  # Detailed project view
+
+├── services.html           # Services overview
+├── services-details.html   # Service details
+
+├── signature.html          # Digital signature tool
+├── sitemap.xml             # SEO sitemap
+├── robots.txt              # Search engine rules
+└── starter-page.html       # Template starter page
 
 
 ---
