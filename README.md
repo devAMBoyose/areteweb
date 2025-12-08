@@ -2,7 +2,7 @@
   <img src="https://img.shields.io/badge/Anna%20Marice%20Boyose-Portfolio%20Website-00c853?style=for-the-badge&logo=github&logoColor=white" />
 </p>
 
-<h1 align="center">🌐 Personal Portfolio — Anna Marice Boyose</h1>
+<h1 align="center">🌐 Devarete Venture - Anna Marice Boyose</h1>
 <p align="center"><strong>Full-Stack Developer | UI/UX Designer | Digital Systems Specialist</strong></p>
 
 <p align="center">
