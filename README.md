@@ -114,12 +114,7 @@ For collaborations or project inquiries, feel free to reach out:
 **amboyose.dev@gmail.com**
 
 🌐 **Portfolio:**  
-
-<p align="left">
-  <a href="https://amboyose.onrender.com/" target="_blank">
-    <img src="https://img.shields.io/badge/Visit%20My%20Portfolio-00c853?style=for-the-badge&logo=windowsterminal&logoColor=white" />
-  </a>
-</p>
+[![Portfolio](https://img.shields.io/badge/Visit%20My%20Portfolio-00c853?style=for-the-badge&logo=windowsterminal&logoColor=white)](https://amboyose.onrender.com/)
 
 ---
 
