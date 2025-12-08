@@ -88,3 +88,55 @@
 ├── sitemap.xml             # Sitemap for SEO
 ├── robots.txt              # Search engine crawler rules
 └── starter-page.html       # Template layout
+
+<br> <!-- ============================= --> <!-- FEATURES --> <!-- ============================= -->
+✨ Key Features
+
+Fully responsive UI across all devices
+
+Smooth animation and reveal effects
+
+Clean portfolio layout with project filtering
+
+Optimized for SEO and loading performance
+
+Organized and scalable file structure
+
+Modern design with custom branding
+
+<br> <!-- ============================= --> <!-- LIVE SITE --> <!-- ============================= -->
+🚀 Live Website
+
+🔗 Visit the Portfolio:
+https://your-domain-here.com
+
+(Replace with your actual link)
+
+<br> <!-- ============================= --> <!-- FEATURED PROJECTS --> <!-- ============================= -->
+📌 Featured Projects
+Project	Description	Tech
+DevArete Web System	Full website, domain setup, scalable pages, and service modules.	HTML, CSS, JS
+BamBanking App (Java)	Secure login, OTP, JWT, dashboard, transactions.	Java, Spring Boot, MongoDB
+Inventory & Consignment Tracker	Node.js API with medical supply monitoring.	Node.js, MongoDB
+Creative Assets for Clients	Thumbnails, vector graphics, branding materials.	Canva, Illustrator
+<br> <!-- ============================= --> <!-- ABOUT THIS REPOSITORY --> <!-- ============================= -->
+📄 About This Repository
+
+This project serves as my official developer portfolio, showcasing systems, UI designs, and tools I built for clients and personal development.
+
+All content was created by Anna Marice Boyose
+
+No external copyrighted text or media is included in this README
+
+You may use the structure as reference, but cloning for commercial use is not permitted
+
+<br> <!-- ============================= --> <!-- CONTACT --> <!-- ============================= -->
+📬 Contact
+
+If you’d like to collaborate or inquire about projects:
+
+📧 Email: amboyose.dev@gmail.com
+
+🌐 Portfolio: https://your-domain-here.com](https://amboyose.onrender.com/
+
+<p align="center">Thank you for visiting my portfolio repository! 💚</p> ```
