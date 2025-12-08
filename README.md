@@ -111,7 +111,7 @@ No copyrighted external text or licensed media is used.
 For collaborations or project inquiries:
 
 📧 **Email:** amboyose.dev@gmail.com  
-🌐 [![Portfolio](https://img.shields.io/badge/Visit-Portfolio-00c853?style=for-the-badge)](https://amboyose.onrender.com/)
+🌐 **Portfolio:** <a href="https://amboyose.onrender.com/" target="_blank">amboyose.onrender.com</a>
 
 ---
 
