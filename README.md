@@ -45,7 +45,18 @@ For collaborations or project inquiries, feel free to reach out:
     <img src="https://img.shields.io/badge/Anna%20Marice%20Boyose-222?style=for-the-badge&labelColor=000&logoColor=white" />
   </p>
 
-  <p href="https://amboyose.onrender.com/">
+  ---
+
+## 📬 Contact
+
+For collaborations or project inquiries, feel free to reach out:
+
+<p align="center">
+  <a href="https://amboyose.onrender.com/">
+    <img src="https://img.shields.io/badge/Anna%20Marice%20Boyose-Portfolio%20Website-00c853?style=for-the-badge&labelColor=000&logo=googlechrome&logoColor=white" />
+  </a>
+</p>
+
   </p>
 
 ## 📁 Repository Structure
