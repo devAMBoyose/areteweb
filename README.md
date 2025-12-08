@@ -5,16 +5,12 @@
 <h1 align="center">🌐 Personal Portfolio — Anna Marice Boyose</h1>
 <p align="center"><strong>Full-Stack Developer | UI/UX Designer | Digital Systems Specialist</strong></p>
 
----
-
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=devAMBoyose&color=00c853&label=Profile+Views" />
   <img src="https://img.shields.io/github/stars/devAMBoyose/areteweb?style=flat&color=00c853" />
   <img src="https://img.shields.io/github/last-commit/devAMBoyose/areteweb?style=flat&color=00c853" />
   <img src="https://img.shields.io/badge/Status-Active-00c853?style=flat" />
 </p>
-
----
 
 ## 🛠 Tech Stack
 
@@ -26,8 +22,6 @@
   <img src="https://img.shields.io/badge/AOS-Animation-00c853?style=for-the-badge" />
   <img src="https://img.shields.io/badge/GitHub%20Pages-121013?style=for-the-badge&logo=github&logoColor=white" />
 </p>
-
----
 
 ## 📌 Table of Contents
 
@@ -82,8 +76,7 @@
 ## 🚀 Live Website
 
 🔗 **Visit my portfolio:**  
-https://your-domain-here.com  
-*(Replace with your real deployment link)*
+(https://amboyose.onrender.com/)
 
 ---
 
@@ -118,8 +111,8 @@ No copyrighted external text or licensed media is used.
 For collaborations or project inquiries:
 
 📧 **Email:** amboyose.dev@gmail.com  
-🌐 **Portfolio:** https://your-domain-here.com  
+🌐 **Portfolio:** [(https://amboyose.onrender.com/) ]
 
 ---
 
-<p align="center">💚 Thank you for visiting my portfolio repository!</p>
+💚 Thank you for visiting my portfolio repository!
