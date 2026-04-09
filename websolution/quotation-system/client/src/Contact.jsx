@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import emailjs from "@emailjs/browser";
 import "./home.css";
 import "./contact.css";
 import logo from "./assets/colored.png";
+
+const API_URL =
+    import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 export default function Contact() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -63,14 +65,23 @@ export default function Contact() {
     const validateForm = (form) => {
         const newErrors = {};
 
-        if (!form.fullName.value.trim()) newErrors.fullName = "Full Name is required.";
+        if (!form.fullName.value.trim()) {
+            newErrors.fullName = "Full Name is required.";
+        }
+
         if (!form.email.value.trim()) {
             newErrors.email = "Email Address is required.";
         } else if (!/\S+@\S+\.\S+/.test(form.email.value.trim())) {
             newErrors.email = "Please enter a valid email address.";
         }
-        if (!form.projectType.value.trim()) newErrors.projectType = "Project Type is required.";
-        if (!form.projectGoal.value.trim()) newErrors.projectGoal = "Main Goal of the Project is required.";
+
+        if (!form.projectType.value.trim()) {
+            newErrors.projectType = "Project Type is required.";
+        }
+
+        if (!form.projectGoal.value.trim()) {
+            newErrors.projectGoal = "Main Goal of the Project is required.";
+        }
 
         return newErrors;
     };
@@ -98,47 +109,48 @@ export default function Contact() {
                 form.querySelectorAll('input[name="modules"]:checked')
             ).map((item) => item.value);
 
-            const templateParams = {
-                fullName: form.fullName.value,
-                companyName: form.companyName.value,
-                email: form.email.value,
-                phone: form.phone.value,
-                contactMethod: form.contactMethod.value,
-                projectType: form.projectType.value,
-                industry: form.industry.value,
-                launchDate: form.launchDate.value,
-                budget: form.budget.value,
-                existingWebsite: form.existingWebsite.value,
-                referenceLink: form.referenceLink.value,
-                projectGoal: form.projectGoal.value,
-                features: form.features.value,
-                modules: selectedModules.join(", "),
-                workflow: form.workflow.value,
-                notes: form.notes.value,
-            };
+            const payload = new FormData();
+            payload.append("fullName", form.fullName.value);
+            payload.append("companyName", form.companyName.value);
+            payload.append("email", form.email.value);
+            payload.append("phone", form.phone.value);
+            payload.append("contactMethod", form.contactMethod.value);
+            payload.append("projectType", form.projectType.value);
+            payload.append("industry", form.industry.value);
+            payload.append("launchDate", form.launchDate.value);
+            payload.append("budget", form.budget.value);
+            payload.append("existingWebsite", form.existingWebsite.value);
+            payload.append("referenceLink", form.referenceLink.value);
+            payload.append("projectGoal", form.projectGoal.value);
+            payload.append("features", form.features.value);
+            payload.append("modules", JSON.stringify(selectedModules));
+            payload.append("workflow", form.workflow.value);
+            payload.append("notes", form.notes.value);
 
-            const response = await emailjs.send(
-                "service_k1pu0cl",
-                "template_skj8scg",
-                templateParams,
-                "kQ8Kn9we7qZysIhRj"
-            );
+            const fileInput = form.fileUpload;
+            if (fileInput?.files?.[0]) {
+                payload.append("fileUpload", fileInput.files[0]);
+            }
 
-            console.log("EmailJS success:", response);
+            const response = await fetch(`${API_URL}/api/inquiries`, {
+                method: "POST",
+                body: payload,
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data?.message || "Failed to send inquiry.");
+            }
 
             setSubmitType("success");
             setSubmitMessage("Thank you! Your inquiry has been sent successfully.");
             setShowSuccessModal(true);
             form.reset();
         } catch (error) {
-            console.error("EmailJS full error:", error);
-            console.error("EmailJS status:", error?.status);
-            console.error("EmailJS text:", error?.text);
-
+            console.error("Inquiry submission error:", error);
             setSubmitType("error");
-            setSubmitMessage(
-                `Failed to send inquiry. Status: ${error?.status || "unknown"} ${error?.text || ""}`
-            );
+            setSubmitMessage(error.message || "Failed to send inquiry.");
         } finally {
             setIsSubmitting(false);
         }

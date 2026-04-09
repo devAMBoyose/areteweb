@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const path = require("path");
 const connectDB = require("./config/db");
 
 dotenv.config();
@@ -8,15 +9,22 @@ connectDB();
 
 const app = express();
 
-// middleware
-app.use(cors());
+app.use(
+    cors({
+        origin: [
+            "http://localhost:5173",
+            "https://devarete.com",
+            "https://www.devarete.com",
+        ],
+        methods: ["GET", "POST"],
+    })
+);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// existing route
 app.use("/api/quotes", require("./routes/quoteRoutes"));
-
-// new inquiry route
 app.use("/api/inquiries", require("./routes/inquiryRoutes"));
 
 app.get("/", (req, res) => {
