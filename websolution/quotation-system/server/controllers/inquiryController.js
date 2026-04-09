@@ -1,4 +1,3 @@
-// server/controllers/inquiryController.js
 import Inquiry from "../models/Inquiry.js";
 import transporter from "../config/mailer.js";
 import { generateTicketNumber } from "../utils/generateTicketNumber.js";
@@ -41,15 +40,23 @@ export async function createInquiry(req, res) {
         const inquiry = await Inquiry.create(inquiryData);
 
         await transporter.sendMail({
-            from: `DevArete <${process.env.MAIL_FROM}>`,
-            to: process.env.INTERNAL_TO,
+            from: `DevArete <${process.env.MAIL_USER}>`,
+            to: process.env.MAIL_TO,
             replyTo: inquiry.email,
             subject: `[New Inquiry] ${ticketNumber} - ${inquiry.fullName}`,
             html: internalInquiryTemplate(inquiryData),
+            attachments: req.file
+                ? [
+                    {
+                        filename: req.file.originalname,
+                        path: req.file.path,
+                    },
+                ]
+                : [],
         });
 
         await transporter.sendMail({
-            from: `DevArete <${process.env.MAIL_FROM}>`,
+            from: `DevArete <${process.env.MAIL_USER}>`,
             to: inquiry.email,
             subject: `We received your inquiry - ${ticketNumber}`,
             html: autoReplyTemplate(inquiryData),
@@ -66,6 +73,7 @@ export async function createInquiry(req, res) {
         return res.status(500).json({
             success: false,
             message: "Failed to submit inquiry.",
+            error: error.message,
         });
     }
 }
