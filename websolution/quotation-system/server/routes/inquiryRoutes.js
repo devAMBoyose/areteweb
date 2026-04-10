@@ -27,6 +27,15 @@ const upload = multer({
     },
 });
 
+function generateTicketNumber() {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, "0");
+    const d = String(now.getDate()).padStart(2, "0");
+    const rand = Math.floor(1000 + Math.random() * 9000);
+    return `DEV-${y}${m}${d}-${rand}`;
+}
+
 router.post("/", upload.single("fileUpload"), async (req, res) => {
     try {
         const {
@@ -110,7 +119,7 @@ ${req.file ? req.file.originalname : "No attachment uploaded"}
 
 ---
 This inquiry was submitted from the DevArete contact form.
-    `.trim();
+        `.trim();
 
         const mailOptions = {
             from: process.env.MAIL_USER,
@@ -123,6 +132,7 @@ This inquiry was submitted from the DevArete contact form.
                     {
                         filename: req.file.originalname,
                         path: req.file.path,
+                        contentType: req.file.mimetype,
                     },
                 ]
                 : [],
@@ -130,9 +140,37 @@ This inquiry was submitted from the DevArete contact form.
 
         await transporter.sendMail(mailOptions);
 
+        // Save inquiry to MongoDB using your existing Inquiry model
+        const { default: Inquiry } = await import("../models/Inquiry.js");
+
+        const newInquiry = new Inquiry({
+            ticketNumber: generateTicketNumber(),
+            fullName: fullName || "",
+            companyName: companyName || "",
+            email: email || "",
+            phone: phone || "",
+            contactMethod: contactMethod || "",
+            projectType: projectType || "",
+            industry: industry || "",
+            launchDate: launchDate || null,
+            budget: budget || "",
+            existingWebsite: existingWebsite || "",
+            referenceLink: referenceLink || "",
+            projectGoal: projectGoal || "",
+            features: features || "",
+            modules: parsedModules,
+            workflow: workflow || "",
+            notes: notes || "",
+            attachmentPath: req.file ? req.file.path.replace(/\\/g, "/") : "",
+        });
+
+        await newInquiry.save();
+
         return res.status(200).json({
             success: true,
             message: "Inquiry sent successfully.",
+            inquiryId: newInquiry._id,
+            attachmentPath: newInquiry.attachmentPath || "",
         });
     } catch (error) {
         console.error("Inquiry route error:", error);
