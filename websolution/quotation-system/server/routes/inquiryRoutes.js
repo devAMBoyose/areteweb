@@ -64,34 +64,6 @@ router.post("/", upload.single("fileUpload"), async (req, res) => {
             parsedModules = [];
         }
 
-        // import ESM model safely inside CommonJS route
-        const inquiryModule = await import("../models/Inquiry.js");
-        const Inquiry = inquiryModule.default;
-
-        // save first to MongoDB
-        const newInquiry = new Inquiry({
-            ticketNumber: generateTicketNumber(),
-            fullName: fullName || "",
-            companyName: companyName || "",
-            email: email || "",
-            phone: phone || "",
-            contactMethod: contactMethod || "",
-            projectType: projectType || "",
-            industry: industry || "",
-            launchDate: launchDate || null,
-            budget: budget || "",
-            existingWebsite: existingWebsite || "",
-            referenceLink: referenceLink || "",
-            projectGoal: projectGoal || "",
-            features: features || "",
-            modules: parsedModules,
-            workflow: workflow || "",
-            notes: notes || "",
-            attachmentPath: req.file ? req.file.path.replace(/\\/g, "/") : "",
-        });
-
-        await newInquiry.save();
-
         const transporter = nodemailer.createTransport({
             host: process.env.MAIL_HOST,
             port: Number(process.env.MAIL_PORT),
@@ -101,6 +73,8 @@ router.post("/", upload.single("fileUpload"), async (req, res) => {
                 pass: process.env.MAIL_PASS,
             },
         });
+
+        const ticketNumber = generateTicketNumber();
 
         const emailText = `
 New Inquiry Received – DevArete
@@ -146,7 +120,7 @@ Attachment:
 ${req.file ? req.file.originalname : "No attachment uploaded"}
 
 Ticket Number:
-${newInquiry.ticketNumber}
+${ticketNumber}
 
 ---
 This inquiry was submitted from the DevArete contact form.
@@ -169,13 +143,44 @@ This inquiry was submitted from the DevArete contact form.
                 : [],
         };
 
+        // 1. Send email first
         await transporter.sendMail(mailOptions);
+
+        // 2. Save to MongoDB only if possible, but do not fail response
+        try {
+            const inquiryModule = await import("../models/Inquiry.js");
+            const Inquiry = inquiryModule.default;
+
+            const newInquiry = new Inquiry({
+                ticketNumber,
+                fullName: fullName || "",
+                companyName: companyName || "",
+                email: email || "",
+                phone: phone || "",
+                contactMethod: contactMethod || "",
+                projectType: projectType || "",
+                industry: industry || "",
+                launchDate: launchDate || null,
+                budget: budget || "",
+                existingWebsite: existingWebsite || "",
+                referenceLink: referenceLink || "",
+                projectGoal: projectGoal || "",
+                features: features || "",
+                modules: parsedModules,
+                workflow: workflow || "",
+                notes: notes || "",
+                attachmentPath: req.file ? req.file.path.replace(/\\/g, "/") : "",
+            });
+
+            await newInquiry.save();
+        } catch (dbError) {
+            console.error("MongoDB save warning:", dbError.message);
+        }
 
         return res.status(200).json({
             success: true,
             message: "Inquiry sent successfully.",
-            ticketNumber: newInquiry.ticketNumber,
-            inquiryId: newInquiry._id,
+            ticketNumber,
         });
     } catch (error) {
         console.error("Inquiry route error:", error);
