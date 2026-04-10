@@ -64,6 +64,8 @@ router.post("/", upload.single("fileUpload"), async (req, res) => {
             parsedModules = [];
         }
 
+        const ticketNumber = generateTicketNumber();
+
         const transporter = nodemailer.createTransport({
             host: process.env.MAIL_HOST,
             port: Number(process.env.MAIL_PORT),
@@ -73,8 +75,6 @@ router.post("/", upload.single("fileUpload"), async (req, res) => {
                 pass: process.env.MAIL_PASS,
             },
         });
-
-        const ticketNumber = generateTicketNumber();
 
         const emailText = `
 New Inquiry Received – DevArete
@@ -126,7 +126,7 @@ ${ticketNumber}
 This inquiry was submitted from the DevArete contact form.
         `.trim();
 
-        const mailOptions = {
+        await transporter.sendMail({
             from: process.env.MAIL_USER,
             to: process.env.MAIL_TO || process.env.MAIL_USER,
             replyTo: email || process.env.MAIL_USER,
@@ -141,41 +141,7 @@ This inquiry was submitted from the DevArete contact form.
                     },
                 ]
                 : [],
-        };
-
-        // 1. Send email first
-        await transporter.sendMail(mailOptions);
-
-        // 2. Save to MongoDB only if possible, but do not fail response
-        try {
-            const inquiryModule = await import("../models/Inquiry.js");
-            const Inquiry = inquiryModule.default;
-
-            const newInquiry = new Inquiry({
-                ticketNumber,
-                fullName: fullName || "",
-                companyName: companyName || "",
-                email: email || "",
-                phone: phone || "",
-                contactMethod: contactMethod || "",
-                projectType: projectType || "",
-                industry: industry || "",
-                launchDate: launchDate || null,
-                budget: budget || "",
-                existingWebsite: existingWebsite || "",
-                referenceLink: referenceLink || "",
-                projectGoal: projectGoal || "",
-                features: features || "",
-                modules: parsedModules,
-                workflow: workflow || "",
-                notes: notes || "",
-                attachmentPath: req.file ? req.file.path.replace(/\\/g, "/") : "",
-            });
-
-            await newInquiry.save();
-        } catch (dbError) {
-            console.error("MongoDB save warning:", dbError.message);
-        }
+        });
 
         return res.status(200).json({
             success: true,
