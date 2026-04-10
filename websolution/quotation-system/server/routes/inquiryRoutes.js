@@ -64,6 +64,34 @@ router.post("/", upload.single("fileUpload"), async (req, res) => {
             parsedModules = [];
         }
 
+        // import ESM model safely inside CommonJS route
+        const inquiryModule = await import("../models/Inquiry.js");
+        const Inquiry = inquiryModule.default;
+
+        // save first to MongoDB
+        const newInquiry = new Inquiry({
+            ticketNumber: generateTicketNumber(),
+            fullName: fullName || "",
+            companyName: companyName || "",
+            email: email || "",
+            phone: phone || "",
+            contactMethod: contactMethod || "",
+            projectType: projectType || "",
+            industry: industry || "",
+            launchDate: launchDate || null,
+            budget: budget || "",
+            existingWebsite: existingWebsite || "",
+            referenceLink: referenceLink || "",
+            projectGoal: projectGoal || "",
+            features: features || "",
+            modules: parsedModules,
+            workflow: workflow || "",
+            notes: notes || "",
+            attachmentPath: req.file ? req.file.path.replace(/\\/g, "/") : "",
+        });
+
+        await newInquiry.save();
+
         const transporter = nodemailer.createTransport({
             host: process.env.MAIL_HOST,
             port: Number(process.env.MAIL_PORT),
@@ -117,6 +145,9 @@ ${notes || ""}
 Attachment:
 ${req.file ? req.file.originalname : "No attachment uploaded"}
 
+Ticket Number:
+${newInquiry.ticketNumber}
+
 ---
 This inquiry was submitted from the DevArete contact form.
         `.trim();
@@ -140,37 +171,11 @@ This inquiry was submitted from the DevArete contact form.
 
         await transporter.sendMail(mailOptions);
 
-        // Save inquiry to MongoDB using your existing Inquiry model
-        const { default: Inquiry } = await import("../models/Inquiry.js");
-
-        const newInquiry = new Inquiry({
-            ticketNumber: generateTicketNumber(),
-            fullName: fullName || "",
-            companyName: companyName || "",
-            email: email || "",
-            phone: phone || "",
-            contactMethod: contactMethod || "",
-            projectType: projectType || "",
-            industry: industry || "",
-            launchDate: launchDate || null,
-            budget: budget || "",
-            existingWebsite: existingWebsite || "",
-            referenceLink: referenceLink || "",
-            projectGoal: projectGoal || "",
-            features: features || "",
-            modules: parsedModules,
-            workflow: workflow || "",
-            notes: notes || "",
-            attachmentPath: req.file ? req.file.path.replace(/\\/g, "/") : "",
-        });
-
-        await newInquiry.save();
-
         return res.status(200).json({
             success: true,
             message: "Inquiry sent successfully.",
+            ticketNumber: newInquiry.ticketNumber,
             inquiryId: newInquiry._id,
-            attachmentPath: newInquiry.attachmentPath || "",
         });
     } catch (error) {
         console.error("Inquiry route error:", error);
